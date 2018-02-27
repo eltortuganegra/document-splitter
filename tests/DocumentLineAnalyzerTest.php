@@ -18,4 +18,15 @@ class DocumentLineAnalyzerTest extends TestCase
         $this->assertEquals($content, $register);
     }
 
+    public function testTwoPhrasesInALineMustProduceTwoRegisters()
+    {
+        $content = 'This must be a register. This must be another register.';
+        $documentLine = new DocumentLine($content);
+        $documentAnalyzer = new DocumentLineAnalyzer();
+        $documentAnalyzer->analyze($documentLine);
+        $amountRegistersFound = $documentAnalyzer->getAmountRegistersFound();
+
+        $this->assertEquals(2, $amountRegistersFound);
+    }
+
 }

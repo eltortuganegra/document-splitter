@@ -6,10 +6,12 @@ class DocumentLineAnalyzer
 {
     private $registerSeveralLines;
     private $register;
+    private $registers;
 
     public function __construct()
     {
         $this->registerSeveralLines = '';
+        $this->registers = [];
     }
 
     public function analyze(DocumentLine $documentLine)
@@ -26,17 +28,14 @@ class DocumentLineAnalyzer
 
         while ($this->isPointCharacterFound($pointPosition)) {
             $length = $this->calculateLengthOfThePhrase($initialPosition, $pointPosition);
-
             echo "\n Initial position: $initialPosition | pointPosition: $pointPosition";
             $this->register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             if ( ! empty($this->registerSeveralLines)) {
                 $this->register = $this->registerSeveralLines . $this->register;
             }
-            echo "\n Register: " . $this->register . "\n";
-
+            $this->registers[] = $this->register;
             $initialPosition = $pointPosition + 1;
             $pointPosition = strpos($documentLine->getContent(), '.', $initialPosition);
-
             if ($initialPosition > strlen($documentLine->getContent())) {
                 $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             }
@@ -75,5 +74,15 @@ class DocumentLineAnalyzer
     public function getRegister()
     {
         return $this->register;
+    }
+
+    public function getRegisters()
+    {
+        return $this->registers;
+    }
+
+    public function getAmountRegistersFound()
+    {
+        return count($this->registers);
     }
 }
