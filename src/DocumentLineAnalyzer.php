@@ -28,7 +28,7 @@ class DocumentLineAnalyzer
             $length = $this->calculateLengthOfThePhrase($initialPosition, $pointPosition);
 
             echo "\n Initial position: $initialPosition | pointPosition: $pointPosition";
-            $this->register = $this->getRegister($documentLine->getContent(), $initialPosition, $length);
+            $this->register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             if ( ! empty($this->registerSeveralLines)) {
                 $this->register = $this->registerSeveralLines . $this->register;
             }
@@ -38,7 +38,7 @@ class DocumentLineAnalyzer
             $pointPosition = strpos($documentLine->getContent(), '.', $initialPosition);
 
             if ($initialPosition > strlen($documentLine->getContent())) {
-                $this->registerSeveralLines = $this->getRegister($documentLine->getContent(), $initialPosition, $length);
+                $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             }
         }
     }
@@ -67,8 +67,13 @@ class DocumentLineAnalyzer
         return $length;
     }
 
-    private function getRegister($line, $initialPosition, $length)
+    private function getRegisterFromDocumentLine($line, $initialPosition, $length)
     {
         return substr($line, $initialPosition, $length);
+    }
+
+    public function getRegister()
+    {
+        return $this->register;
     }
 }
