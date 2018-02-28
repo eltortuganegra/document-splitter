@@ -17,7 +17,7 @@ class DocumentLineAnalyzer
     {
         echo "\nDocument line content: " . $documentLine->getContent() . "\n";
         $initialPosition = 0;
-        $endCharacterPosition = $this->findEndCharacterPosition($documentLine->getContent());
+        $endCharacterPosition = $this->findEndCharacterPosition($documentLine);
 
         if (empty($endCharacterPosition)) {
             $this->registerSeveralLines .= $this->removeReturnCarriage($documentLine->getContent());
@@ -37,16 +37,16 @@ class DocumentLineAnalyzer
             echo "Register: $register";
             $this->registers[] = $register;
             $initialPosition = $endCharacterPosition + 1;
-            $endCharacterPosition = $this->findEndCharacterPosition($documentLine->getContent(), $initialPosition);
+            $endCharacterPosition = $this->findEndCharacterPosition($documentLine, $initialPosition);
             if ($initialPosition > strlen($documentLine->getContent())) {
                 $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             }
         }
     }
 
-    private function findEndCharacterPosition($line, $offset = 0)
+    private function findEndCharacterPosition(DocumentLine $documentLine, $offset = 0)
     {
-        $endCharacterPosition = new EndCharacterPosition($line, $offset);
+        $endCharacterPosition = new EndCharacterPosition($documentLine, $offset);
 
         return $endCharacterPosition->find();
     }

@@ -4,12 +4,12 @@ namespace DocumentSplitter;
 
 class EndCharacterPosition
 {
-    private $line;
+    private $documentLine;
     private $offset;
 
-    public function __construct($line, $offset = 0)
+    public function __construct(DocumentLine $documentLine, $offset = 0)
     {
-        $this->line = $line;
+        $this->documentLine = $documentLine;
         $this->offset = $offset;
     }
 
@@ -39,7 +39,7 @@ class EndCharacterPosition
 
     private function findEndCharacterPosition($endCharacter)
     {
-        $position = strpos($this->line, $endCharacter, $this->offset);
+        $position = strpos($this->documentLine->getContent(), $endCharacter, $this->offset);
 
         return $position;
     }
