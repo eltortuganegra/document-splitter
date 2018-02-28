@@ -4,7 +4,6 @@
     <list default="true" id="c4d21737-67cc-40bc-b50f-745887b77ae7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" afterPath="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" afterPath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
     </list>
     <ignored path="document-splitter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,8 +58,8 @@
       <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -399,7 +398,13 @@
       <option name="project" value="LOCAL" />
       <updated>1519820511226</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="One phrase with exclamation mark in a line must produce a register.">
+      <created>1519821605187</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1519821605187</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -654,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -106,10 +106,6 @@ class DocumentLineAnalyzer
         return !empty($this->registerSeveralLines);
     }
 
-    /**
-     * @param $endCharacterPosition
-     * @return mixed
-     */
     private function calculateInitialPositionForNextRegister($endCharacterPosition)
     {
         $registerInitialPosition = $endCharacterPosition + 1;
