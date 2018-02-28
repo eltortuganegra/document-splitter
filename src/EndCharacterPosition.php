@@ -19,13 +19,13 @@ class EndCharacterPosition
         $questionMarkPosition = $this->findQuestionMarkPosition();
         $exclamationMarkPosition = $this->findExclamationMarkPosition();
 
-        if ($this->isPointFoundFirst($pointPosition, $questionMarkPosition)) {
+        if ($this->isPointFoundFirst($pointPosition, $questionMarkPosition, $exclamationMarkPosition)) {
 
             return $pointPosition;
-        } else if ($this->isQuestionFoundFirst($questionMarkPosition, $pointPosition)) {
+        } else if ($this->isQuestionFoundFirst($questionMarkPosition, $pointPosition, $exclamationMarkPosition)) {
 
             return $questionMarkPosition;
-        } else if ($this->isExclamationFoundFirst($exclamationMarkPosition, $pointPosition)) {
+        } else if ($this->isExclamationFoundFirst($exclamationMarkPosition, $pointPosition, $exclamationMarkPosition)) {
 
             return $exclamationMarkPosition;
         }
@@ -64,32 +64,46 @@ class EndCharacterPosition
         return $exclamationMarkPosition;
     }
 
-    private function isPointFoundFirst($pointPosition, $questionMarkPosition)
+    private function isPointFoundFirst($pointPosition, $questionMarkPosition, $exclamationMarkPosition)
     {
         return ! empty($pointPosition)
             && (
-                empty($questionMarkPosition)
-                || (!empty($questionMarkPosition) && ($pointPosition < $questionMarkPosition)
-            )
-        );
+                (
+                    empty($questionMarkPosition)
+                    || ( ! empty($questionMarkPosition) && ($pointPosition < $questionMarkPosition))
+                ) && (
+                    empty($exclamationMarkPosition)
+                    || ( ! empty($exclamationMarkPosition) && ($pointPosition < $exclamationMarkPosition))
+                )
+            );
     }
 
-    private function isQuestionFoundFirst($questionMarkPosition, $pointPosition)
+    private function isQuestionFoundFirst($questionMarkPosition, $pointPosition, $exclamationMarkPosition)
     {
         return ! empty($questionMarkPosition)
             && (
-                empty($pointPosition)
-                || ( ! empty($pointPosition) && ($questionMarkPosition < $pointPosition)
+                (
+                    empty($pointPosition)
+                    || ( ! empty($pointPosition) && ($questionMarkPosition < $pointPosition)
+                ) && (
+                    empty($exclamationMarkPosition)
+                    || ( ! empty($exclamationMarkPosition) && ($questionMarkPosition < $exclamationMarkPosition))
+                )
             )
         );
     }
 
-    private function isExclamationFoundFirst($exclamationMarkPosition, $pointPosition)
+    private function isExclamationFoundFirst($exclamationMarkPosition, $pointPosition, $exclamationMarkPosition)
     {
         return ! empty($exclamationMarkPosition)
             && (
-                empty($pointPosition)
-                || ( ! empty($pointPosition) && ($exclamationMarkPosition < $pointPosition)
+                (
+                    empty($pointPosition)
+                    || ( ! empty($pointPosition) && ($exclamationMarkPosition < $pointPosition)
+                ) && (
+                    empty($questionMarkPosition)
+                    || ( ! empty($questionMarkPosition) && ($exclamationMarkPosition < $questionMarkPosition))
+                )
             )
         );
     }
