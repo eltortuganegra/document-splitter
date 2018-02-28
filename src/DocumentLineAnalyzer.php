@@ -29,13 +29,15 @@ class DocumentLineAnalyzer
         while($this->isEndCharacterFound($endCharacterPosition)) {
             $length = $this->calculateLengthOfThePhrase($registerInitialPosition, $endCharacterPosition);
             echo "\n Register initial position: $registerInitialPosition | endCharacterPosition: $endCharacterPosition";
+
             $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
             if ($this->didTheRegisterBeginInAPreviousLine()) {
                 $register = $this->registerSeveralLines . $register;
             }
+
             echo "Register: $register";
             $this->addRegisterToRegisters($register);
-            $registerInitialPosition = $endCharacterPosition + 1;
+            $registerInitialPosition = $this->calculateInitialPositionForNextRegister($endCharacterPosition);
             $endCharacterPosition = $this->findEndCharacterPosition($documentLine, $registerInitialPosition);
             if ($this->isInitialPositionGreatherThanLengthOfTheDocumentLine($documentLine, $registerInitialPosition)) {
                 $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
@@ -89,29 +91,28 @@ class DocumentLineAnalyzer
         return empty($endCharacterPosition);
     }
 
-    /**
-     * @param $register
-     */
     private function addRegisterToRegisters($register)
     {
         $this->registers[] = $register;
     }
 
-    /**
-     * @param DocumentLine $documentLine
-     * @param $initialPosition
-     * @return bool
-     */
     private function isInitialPositionGreatherThanLengthOfTheDocumentLine(DocumentLine $documentLine, $initialPosition)
     {
         return $initialPosition > strlen($documentLine->getContent());
     }
 
-    /**
-     * @return bool
-     */
     private function didTheRegisterBeginInAPreviousLine()
     {
         return !empty($this->registerSeveralLines);
+    }
+
+    /**
+     * @param $endCharacterPosition
+     * @return mixed
+     */
+    private function calculateInitialPositionForNextRegister($endCharacterPosition)
+    {
+        $registerInitialPosition = $endCharacterPosition + 1;
+        return $registerInitialPosition;
     }
 }
