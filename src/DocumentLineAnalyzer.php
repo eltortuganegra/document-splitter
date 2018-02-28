@@ -19,14 +19,14 @@ class DocumentLineAnalyzer
         $initialPosition = 0;
         $endCharacterPosition = $this->findEndCharacterPosition($documentLine);
 
-        if (empty($endCharacterPosition)) {
+        if ($this->isEndCharacterPositionNotFound($endCharacterPosition)) {
             $this->registerSeveralLines .= $this->removeReturnCarriage($documentLine->getContent());
             echo " This line has not point. Saved: " . $this->registerSeveralLines . "\n";
 
             return;
         }
 
-        while ($this->isEndCharacterFound($endCharacterPosition)) {
+        while($this->isEndCharacterFound($endCharacterPosition)) {
             $length = $this->calculateLengthOfThePhrase($initialPosition, $endCharacterPosition);
             echo "\n Initial position: $initialPosition | endCharacterPosition: $endCharacterPosition";
             $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
@@ -83,5 +83,10 @@ class DocumentLineAnalyzer
     public function getAmountRegistersFound()
     {
         return count($this->registers);
+    }
+
+    private function isEndCharacterPositionNotFound($endCharacterPosition)
+    {
+        return empty($endCharacterPosition);
     }
 }
