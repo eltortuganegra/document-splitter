@@ -5,7 +5,6 @@ namespace DocumentSplitter;
 class DocumentLineAnalyzer
 {
     private $registerSeveralLines;
-    private $register;
     private $registers;
 
     public function __construct()
@@ -21,7 +20,7 @@ class DocumentLineAnalyzer
         $pointPosition = $this->findPointCharacter($documentLine->getContent());
         if (empty($pointPosition)) {
             $this->registerSeveralLines .= $this->removeReturnCarriage($documentLine->getContent());
-            echo " This line has not point.\n";
+            echo " This line has not point. Saved: " . $this->registerSeveralLines . "\n";
 
             return;
         }
@@ -29,11 +28,13 @@ class DocumentLineAnalyzer
         while ($this->isPointCharacterFound($pointPosition)) {
             $length = $this->calculateLengthOfThePhrase($initialPosition, $pointPosition);
             echo "\n Initial position: $initialPosition | pointPosition: $pointPosition";
-            $this->register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
+            $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             if ( ! empty($this->registerSeveralLines)) {
-                $this->register = $this->registerSeveralLines . $this->register;
+                echo "";
+                $register = $this->registerSeveralLines . $register;
             }
-            $this->registers[] = $this->register;
+            echo "Register: $register";
+            $this->registers[] = $register;
             $initialPosition = $pointPosition + 1;
             $pointPosition = strpos($documentLine->getContent(), '.', $initialPosition);
             if ($initialPosition > strlen($documentLine->getContent())) {
@@ -69,11 +70,6 @@ class DocumentLineAnalyzer
     private function getRegisterFromDocumentLine($line, $initialPosition, $length)
     {
         return substr($line, $initialPosition, $length);
-    }
-
-    public function getRegister()
-    {
-        return $this->register;
     }
 
     public function getRegisters()

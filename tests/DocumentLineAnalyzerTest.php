@@ -13,9 +13,9 @@ class DocumentLineAnalyzerTest extends TestCase
         $documentAnalyzer = new DocumentLineAnalyzer();
         $documentAnalyzer->analyze($documentLine);
 
-        $register = $documentAnalyzer->getRegister();
+        $registers = $documentAnalyzer->getRegisters();
 
-        $this->assertEquals($content, $register);
+        $this->assertEquals($content, $registers[0]);
     }
 
     public function testTwoPhrasesInALineMustProduceTwoRegisters()
@@ -29,15 +29,34 @@ class DocumentLineAnalyzerTest extends TestCase
         $this->assertEquals(2, $amountRegistersFound);
     }
 
-    public function testALineWithThreePhrasesMustProduceThreeRegisters()
+    public function testAPhraseInTwoLinesMustProduceOneRegister()
     {
-        $content = 'This must be a register. This must be another register. This is third phrase.';
-        $documentLine = new DocumentLine($content);
         $documentAnalyzer = new DocumentLineAnalyzer();
-        $documentAnalyzer->analyze($documentLine);
+        $content = 'I am Guybrush Threepwood,';
+        $documentLineOne = new DocumentLine($content);
+        $documentAnalyzer->analyze($documentLineOne);
+        $content = 'mighty pirate.';
+        $documentLineTwo = new DocumentLine($content);
+        $documentAnalyzer->analyze($documentLineTwo);
+
         $amountRegistersFound = $documentAnalyzer->getAmountRegistersFound();
 
-        $this->assertEquals(3, $amountRegistersFound);
+        $this->assertEquals(1, $amountRegistersFound);
+    }
+
+    public function testAPhraseInTwoLinesMustProduceOneRegisterWithThePhrase()
+    {
+        $documentAnalyzer = new DocumentLineAnalyzer();
+        $content = 'I am Guybrush Threepwood, ';
+        $documentLineOne = new DocumentLine($content);
+        $documentAnalyzer->analyze($documentLineOne);
+        $content = 'mighty pirate.';
+        $documentLineTwo = new DocumentLine($content);
+        $documentAnalyzer->analyze($documentLineTwo);
+
+        $registers = $documentAnalyzer->getRegisters();
+
+        $this->assertEquals('I am Guybrush Threepwood, mighty pirate.', $registers[0]);
     }
 
 }
