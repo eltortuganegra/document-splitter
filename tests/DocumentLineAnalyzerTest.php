@@ -93,8 +93,8 @@ class DocumentLineAnalyzerTest extends TestCase
         $documentLineTwo = new DocumentLine($content);
         $documentAnalyzer->analyze($documentLineTwo);
 
-        $amountRegistersFound = $documentAnalyzer->getAmountRegistersFound();
+        $registers = $documentAnalyzer->getRegisters();
 
-        $this->assertEquals(1, $amountRegistersFound);
+        $this->assertEquals('Why the rum is gone?', $registers[0]);
     }
 }

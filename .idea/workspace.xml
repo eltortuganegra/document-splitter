@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4d21737-67cc-40bc-b50f-745887b77ae7" name="Default" comment="A line with three phrases must produce three registers.">
+    <list default="true" id="c4d21737-67cc-40bc-b50f-745887b77ae7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" afterPath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
     </list>
@@ -78,8 +78,8 @@
       <file leaf-file-name="DocumentLineAnalyzerTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44152746">
-              <caret line="75" column="77" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.62768495">
+              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -360,7 +360,19 @@
       <option name="project" value="LOCAL" />
       <updated>1519819322273</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Two phrases with question mark in a line must produce a register.">
+      <created>1519819810452</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1519819810452</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Two phrases with question mark in a line must produce a register.">
+      <created>1519819920360</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1519819920360</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -434,7 +446,8 @@
     <MESSAGE value="One phrase with question mark is a line must produce a register." />
     <MESSAGE value="A line with three phrases must produce three registers." />
     <MESSAGE value="Git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Git ignore" />
+    <MESSAGE value="Two phrases with question mark in a line must produce a register." />
+    <option name="LAST_COMMIT_MESSAGE" value="Two phrases with question mark in a line must produce a register." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -613,8 +626,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44152746">
-          <caret line="75" column="77" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.62768495">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding />
         </state>
       </provider>
