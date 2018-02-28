@@ -103,12 +103,13 @@ class DocumentLineAnalyzer
 
     private function didTheRegisterBeginInAPreviousLine()
     {
-        return !empty($this->registerSeveralLines);
+        return ! empty($this->registerSeveralLines);
     }
 
     private function calculateInitialPositionForNextRegister($endCharacterPosition)
     {
         $registerInitialPosition = $endCharacterPosition + 1;
+
         return $registerInitialPosition;
     }
 }
