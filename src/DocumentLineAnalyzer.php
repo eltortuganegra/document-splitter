@@ -17,17 +17,18 @@ class DocumentLineAnalyzer
     {
         echo "\nDocument line content: " . $documentLine->getContent() . "\n";
         $initialPosition = 0;
-        $pointPosition = $this->findPointCharacter($documentLine->getContent());
-        if (empty($pointPosition)) {
+        $endCharacterPosition = $this->findEndCharacterPosition($documentLine->getContent());
+
+        if (empty($endCharacterPosition)) {
             $this->registerSeveralLines .= $this->removeReturnCarriage($documentLine->getContent());
             echo " This line has not point. Saved: " . $this->registerSeveralLines . "\n";
 
             return;
         }
 
-        while ($this->isPointCharacterFound($pointPosition)) {
-            $length = $this->calculateLengthOfThePhrase($initialPosition, $pointPosition);
-            echo "\n Initial position: $initialPosition | pointPosition: $pointPosition";
+        while ($this->isEndCharacterFound($endCharacterPosition)) {
+            $length = $this->calculateLengthOfThePhrase($initialPosition, $endCharacterPosition);
+            echo "\n Initial position: $initialPosition | endCharacterPosition: $endCharacterPosition";
             $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             if ( ! empty($this->registerSeveralLines)) {
                 echo "";
@@ -35,17 +36,37 @@ class DocumentLineAnalyzer
             }
             echo "Register: $register";
             $this->registers[] = $register;
-            $initialPosition = $pointPosition + 1;
-            $pointPosition = strpos($documentLine->getContent(), '.', $initialPosition);
+            $initialPosition = $endCharacterPosition + 1;
+            $endCharacterPosition = $this->findEndCharacterPosition($documentLine->getContent(), $initialPosition);
             if ($initialPosition > strlen($documentLine->getContent())) {
                 $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
             }
         }
     }
 
-    private function findPointCharacter($line)
+    private function findEndCharacterPosition($line, $offset = 0)
     {
-        return strpos($line, '.');
+        $pointPosition = strpos($line, '.', $offset);
+        $questionMarkPosition = strpos($line, '?', $offset);
+
+        if ( ! empty($pointPosition) && (
+                empty($questionMarkPosition)
+                || ( ! empty($questionMarkPosition) && ($pointPosition < $questionMarkPosition))
+            )
+        ) {
+
+
+            return $pointPosition;
+        } else if ( ! empty($questionMarkPosition) && (
+                empty($pointPosition)
+                || ( ! empty($pointPosition) && ($questionMarkPosition < $pointPosition))
+            )
+        ) {
+
+            return $questionMarkPosition;
+        }
+
+        return false;
     }
 
     private function removeReturnCarriage($line)
@@ -53,7 +74,7 @@ class DocumentLineAnalyzer
         return str_replace("\n", '', $line);
     }
 
-    private function isPointCharacterFound($pointPosition)
+    private function isEndCharacterFound($pointPosition)
     {
         return $pointPosition !== false;
     }

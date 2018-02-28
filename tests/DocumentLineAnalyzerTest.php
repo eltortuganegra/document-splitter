@@ -59,4 +59,16 @@ class DocumentLineAnalyzerTest extends TestCase
         $this->assertEquals('I am Guybrush Threepwood, mighty pirate.', $registers[0]);
     }
 
+    public function testOnePhraseWithQuestionMarkInALineMustProduceARegister()
+    {
+        $content = 'Why the rum is gone?';
+        $documentLine = new DocumentLine($content);
+        $documentAnalyzer = new DocumentLineAnalyzer();
+        $documentAnalyzer->analyze($documentLine);
+
+        $registers = $documentAnalyzer->getRegisters();
+
+        $this->assertEquals($content, $registers[0]);
+    }
+
 }
