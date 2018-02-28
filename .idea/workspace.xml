@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d21737-67cc-40bc-b50f-745887b77ae7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EndCharacterPosition.php" afterPath="$PROJECT_DIR$/src/EndCharacterPosition.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" afterPath="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" afterPath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
     </list>
     <ignored path="document-splitter.iws" />
@@ -56,20 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.488">
-              <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EndCharacterPosition.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EndCharacterPosition.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23990773">
+            <state vertical-scroll-proportion="-5.9428573">
               <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
               <folding />
             </state>
@@ -79,8 +79,8 @@
       <file leaf-file-name="DocumentLineAnalyzerTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.25">
-              <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
+            <state vertical-scroll-proportion="-5.375">
+              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,10 +129,10 @@
         <option value="$PROJECT_DIR$/src/Document.php" />
         <option value="$PROJECT_DIR$/src/Splitter.php" />
         <option value="$PROJECT_DIR$/tests/DocumentSplitterTest.php" />
-        <option value="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
         <option value="$PROJECT_DIR$/src/EndCharacterPosition.php" />
+        <option value="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
+        <option value="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
       </list>
     </option>
   </component>
@@ -193,6 +193,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="document-splitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="document-splitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="document-splitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -379,7 +393,13 @@
       <option name="project" value="LOCAL" />
       <updated>1519819984152</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="One phrase with exclamation mark in a line must produce a register.">
+      <created>1519820511226</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1519820511226</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -454,7 +474,8 @@
     <MESSAGE value="A line with three phrases must produce three registers." />
     <MESSAGE value="Git ignore" />
     <MESSAGE value="Two phrases with question mark in a line must produce a register." />
-    <option name="LAST_COMMIT_MESSAGE" value="Two phrases with question mark in a line must produce a register." />
+    <MESSAGE value="One phrase with exclamation mark in a line must produce a register." />
+    <option name="LAST_COMMIT_MESSAGE" value="One phrase with exclamation mark in a line must produce a register." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -617,24 +638,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.25">
-          <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.488">
-          <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+        <state vertical-scroll-proportion="-5.375">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23990773">
+        <state vertical-scroll-proportion="-5.9428573">
           <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
           <folding />
         </state>
       </provider>

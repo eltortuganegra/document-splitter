@@ -73,7 +73,7 @@ class DocumentLineAnalyzer
 
     private function getRegisterFromDocumentLine($line, $initialPosition, $length)
     {
-        return substr($line, $initialPosition, $length);
+        return trim(substr($line, $initialPosition, $length));
     }
 
     public function getRegisters()
