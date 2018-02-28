@@ -46,27 +46,9 @@ class DocumentLineAnalyzer
 
     private function findEndCharacterPosition($line, $offset = 0)
     {
-        $pointPosition = strpos($line, '.', $offset);
-        $questionMarkPosition = strpos($line, '?', $offset);
+        $endCharacterPosition = new EndCharacterPosition($line, $offset);
 
-        if ( ! empty($pointPosition) && (
-                empty($questionMarkPosition)
-                || ( ! empty($questionMarkPosition) && ($pointPosition < $questionMarkPosition))
-            )
-        ) {
-
-
-            return $pointPosition;
-        } else if ( ! empty($questionMarkPosition) && (
-                empty($pointPosition)
-                || ( ! empty($pointPosition) && ($questionMarkPosition < $pointPosition))
-            )
-        ) {
-
-            return $questionMarkPosition;
-        }
-
-        return false;
+        return $endCharacterPosition->find();
     }
 
     private function removeReturnCarriage($line)
