@@ -71,4 +71,17 @@ class DocumentLineAnalyzerTest extends TestCase
         $this->assertEquals($content, $registers[0]);
     }
 
+
+
+    public function testTwoPhrasesWithQuestionMarkInALineMustProduceARegister()
+    {
+        $content = 'Why the rum is gone? Why the rum is gone?';
+        $documentLine = new DocumentLine($content);
+        $documentAnalyzer = new DocumentLineAnalyzer();
+        $documentAnalyzer->analyze($documentLine);
+
+        $amountRegistersFound = $documentAnalyzer->getAmountRegistersFound();
+
+        $this->assertEquals(2, $amountRegistersFound);
+    }
 }
