@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d21737-67cc-40bc-b50f-745887b77ae7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EndCharacterPosition.php" afterPath="$PROJECT_DIR$/src/EndCharacterPosition.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" afterPath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
     </list>
     <ignored path="document-splitter.iws" />
@@ -58,28 +59,28 @@
       <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.112">
-              <caret line="83" column="43" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="43" />
+            <state vertical-scroll-proportion="-2.488">
+              <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EndCharacterPosition.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EndCharacterPosition.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6857142">
-              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.23990773">
+              <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentLineAnalyzerTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DocumentLineAnalyzerTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62768495">
-              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state vertical-scroll-proportion="-10.25">
+              <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -128,10 +129,10 @@
         <option value="$PROJECT_DIR$/src/Document.php" />
         <option value="$PROJECT_DIR$/src/Splitter.php" />
         <option value="$PROJECT_DIR$/tests/DocumentSplitterTest.php" />
-        <option value="$PROJECT_DIR$/src/EndCharacterPosition.php" />
         <option value="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
+        <option value="$PROJECT_DIR$/src/EndCharacterPosition.php" />
       </list>
     </option>
   </component>
@@ -372,7 +373,13 @@
       <option name="project" value="LOCAL" />
       <updated>1519819920360</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Two phrases with question mark in a line must produce a register.">
+      <created>1519819984152</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1519819984152</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -592,14 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6857142">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -616,18 +615,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
+    <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.112">
-          <caret line="83" column="43" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="43" />
+        <state vertical-scroll-proportion="-10.25">
+          <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
+    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62768495">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.488">
+          <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23990773">
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
           <folding />
         </state>
       </provider>

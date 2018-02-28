@@ -97,4 +97,16 @@ class DocumentLineAnalyzerTest extends TestCase
 
         $this->assertEquals('Why the rum is gone?', $registers[0]);
     }
+
+    public function testOnePhraseWithExclamationMarkInALineMustProduceARegister()
+    {
+        $content = 'I’ve got a jar of dirt!';
+        $documentLine = new DocumentLine($content);
+        $documentAnalyzer = new DocumentLineAnalyzer();
+        $documentAnalyzer->analyze($documentLine);
+
+        $registers = $documentAnalyzer->getRegisters();
+
+        $this->assertEquals($content, $registers[0]);
+    }
 }

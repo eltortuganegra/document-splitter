@@ -17,6 +17,7 @@ class EndCharacterPosition
     {
         $pointPosition = $this->findPointPosition();
         $questionMarkPosition = $this->findQuestionMarkPosition();
+        $exclamationMarkPosition = $this->findExclamationMarkPosition();
 
         if ($this->isPointFoundFirst($pointPosition, $questionMarkPosition)) {
 
@@ -24,6 +25,9 @@ class EndCharacterPosition
         } else if ($this->isQuestionFoundFirst($questionMarkPosition, $pointPosition)) {
 
             return $questionMarkPosition;
+        } else if ($this->isExclamationFoundFirst($exclamationMarkPosition, $pointPosition)) {
+
+            return $exclamationMarkPosition;
         }
 
         return false;
@@ -52,6 +56,14 @@ class EndCharacterPosition
         return $questionMarkPosition;
     }
 
+    private function findExclamationMarkPosition()
+    {
+        $endCharacter = '!';
+        $exclamationMarkPosition = $this->findEndCharacterPosition($endCharacter);
+
+        return $exclamationMarkPosition;
+    }
+
     private function isPointFoundFirst($pointPosition, $questionMarkPosition)
     {
         return ! empty($pointPosition)
@@ -68,6 +80,16 @@ class EndCharacterPosition
             && (
                 empty($pointPosition)
                 || ( ! empty($pointPosition) && ($questionMarkPosition < $pointPosition)
+            )
+        );
+    }
+
+    private function isExclamationFoundFirst($exclamationMarkPosition, $pointPosition)
+    {
+        return ! empty($exclamationMarkPosition)
+            && (
+                empty($pointPosition)
+                || ( ! empty($pointPosition) && ($exclamationMarkPosition < $pointPosition)
             )
         );
     }
