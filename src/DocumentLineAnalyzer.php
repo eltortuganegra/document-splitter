@@ -16,7 +16,7 @@ class DocumentLineAnalyzer
     public function analyze(DocumentLine $documentLine)
     {
         echo "\nDocument line content: " . $documentLine->getContent() . "\n";
-        $initialPosition = 0;
+        $registerInitialPosition = 0;
         $endCharacterPosition = $this->findEndCharacterPosition($documentLine);
 
         if ($this->isEndCharacterPositionNotFound($endCharacterPosition)) {
@@ -27,19 +27,18 @@ class DocumentLineAnalyzer
         }
 
         while($this->isEndCharacterFound($endCharacterPosition)) {
-            $length = $this->calculateLengthOfThePhrase($initialPosition, $endCharacterPosition);
-            echo "\n Initial position: $initialPosition | endCharacterPosition: $endCharacterPosition";
-            $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
-            if ( ! empty($this->registerSeveralLines)) {
-                echo "";
+            $length = $this->calculateLengthOfThePhrase($registerInitialPosition, $endCharacterPosition);
+            echo "\n Register initial position: $registerInitialPosition | endCharacterPosition: $endCharacterPosition";
+            $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
+            if ($this->didTheRegisterBeginInAPreviousLine()) {
                 $register = $this->registerSeveralLines . $register;
             }
             echo "Register: $register";
-            $this->registers[] = $register;
-            $initialPosition = $endCharacterPosition + 1;
-            $endCharacterPosition = $this->findEndCharacterPosition($documentLine, $initialPosition);
-            if ($initialPosition > strlen($documentLine->getContent())) {
-                $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $initialPosition, $length);
+            $this->addRegisterToRegisters($register);
+            $registerInitialPosition = $endCharacterPosition + 1;
+            $endCharacterPosition = $this->findEndCharacterPosition($documentLine, $registerInitialPosition);
+            if ($this->isInitialPositionGreatherThanLengthOfTheDocumentLine($documentLine, $registerInitialPosition)) {
+                $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
             }
         }
     }
@@ -88,5 +87,31 @@ class DocumentLineAnalyzer
     private function isEndCharacterPositionNotFound($endCharacterPosition)
     {
         return empty($endCharacterPosition);
+    }
+
+    /**
+     * @param $register
+     */
+    private function addRegisterToRegisters($register)
+    {
+        $this->registers[] = $register;
+    }
+
+    /**
+     * @param DocumentLine $documentLine
+     * @param $initialPosition
+     * @return bool
+     */
+    private function isInitialPositionGreatherThanLengthOfTheDocumentLine(DocumentLine $documentLine, $initialPosition)
+    {
+        return $initialPosition > strlen($documentLine->getContent());
+    }
+
+    /**
+     * @return bool
+     */
+    private function didTheRegisterBeginInAPreviousLine()
+    {
+        return !empty($this->registerSeveralLines);
     }
 }
