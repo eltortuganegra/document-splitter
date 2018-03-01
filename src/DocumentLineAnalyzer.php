@@ -29,6 +29,11 @@ class DocumentLineAnalyzer
         while($this->isEndCharacterFound($endCharacterPosition)) {
             $length = $this->calculateLengthOfThePhrase($registerInitialPosition, $endCharacterPosition);
             echo "\n Register initial position: $registerInitialPosition | endCharacterPosition: $endCharacterPosition";
+            if ($this->isPhraseBetweenQuotesMark($documentLine, $endCharacterPosition)) {
+                $length++;
+                $endCharacterPosition++;
+                echo " | Between quotes: endCharacterPosition($endCharacterPosition) length ($length) ";
+            }
 
             $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
             if ($this->didTheRegisterBeginInAPreviousLine()) {
@@ -36,10 +41,11 @@ class DocumentLineAnalyzer
                 $this->resetRegisterPreviousLine();
             }
 
-            echo "Register: $register";
+            echo " | Register: ($register)";
             $this->addRegisterToRegisters($register);
             $registerInitialPosition = $this->calculateInitialPositionForNextRegister($endCharacterPosition);
             $endCharacterPosition = $this->findEndCharacterPosition($documentLine, $registerInitialPosition);
+            echo "\n Next register: registerInitialPosition ($registerInitialPosition) endCharacterPosition ($endCharacterPosition)";
             if ($this->isInitialPositionGreatherThanLengthOfTheDocumentLine($documentLine, $registerInitialPosition)) {
                 $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
             }
@@ -124,5 +130,15 @@ class DocumentLineAnalyzer
     private function resetRegisterPreviousLine()
     {
         $this->registerSeveralLines = '';
+    }
+
+    private function isPhraseBetweenQuotesMark(DocumentLine $documentLine, $endCharacterPosition)
+    {
+        $documentLineContent = $documentLine->getContent();
+        $documentLineContentSize = strlen($documentLineContent);
+        $nextCharacterToEndCharacterPosition = $endCharacterPosition + 1;
+
+        return (($nextCharacterToEndCharacterPosition) <= $documentLineContentSize - 1)
+            && ($documentLineContent[$nextCharacterToEndCharacterPosition] == '"');
     }
 }

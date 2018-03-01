@@ -56,11 +56,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.072">
-              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.4832714">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="standard_1.php" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.942858">
+              <caret line="547" column="9" selection-start-line="547" selection-start-column="9" selection-end-line="547" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -69,18 +79,18 @@
       <file leaf-file-name="EndCharacterPosition.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.085714">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4857143">
+              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentLineAnalyzerTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DocumentLineAnalyzerTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3484487">
-              <caret line="140" column="110" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="110" />
+            <state vertical-scroll-proportion="-9.4375">
+              <caret line="214" column="29" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -130,9 +140,9 @@
         <option value="$PROJECT_DIR$/src/Splitter.php" />
         <option value="$PROJECT_DIR$/tests/DocumentSplitterTest.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
         <option value="$PROJECT_DIR$/src/EndCharacterPosition.php" />
         <option value="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
+        <option value="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
       </list>
     </option>
   </component>
@@ -443,7 +453,13 @@
       <option name="project" value="LOCAL" />
       <updated>1519896538107</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Three  phrases with exclamation, question and point mark in two lines must produce three registers.">
+      <created>1519897762859</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1519897762859</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -520,7 +536,8 @@
     <MESSAGE value="Two phrases with question mark in a line must produce a register." />
     <MESSAGE value="One phrase with exclamation mark in a line must produce a register." />
     <MESSAGE value="One phrase with exclamation, question and point mark in a line must produce three registers." />
-    <option name="LAST_COMMIT_MESSAGE" value="One phrase with exclamation, question and point mark in a line must produce three registers." />
+    <MESSAGE value="Three  phrases with exclamation, question and point mark in two lines must produce three registers." />
+    <option name="LAST_COMMIT_MESSAGE" value="Three  phrases with exclamation, question and point mark in two lines must produce three registers." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -571,14 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8914081">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -681,26 +690,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
+    <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.072">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.4857143">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EndCharacterPosition.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.085714">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state vertical-scroll-proportion="-21.942858">
+          <caret line="547" column="9" selection-start-line="547" selection-start-column="9" selection-end-line="547" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3484487">
-          <caret line="140" column="110" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="110" />
+        <state vertical-scroll-proportion="-9.4375">
+          <caret line="214" column="29" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4832714">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
