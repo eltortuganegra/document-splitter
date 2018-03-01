@@ -9,7 +9,7 @@ class DocumentLineAnalyzer
 
     public function __construct()
     {
-        $this->registerSeveralLines = '';
+        $this->resetRegisterPreviousLine();
         $this->registers = [];
     }
 
@@ -32,7 +32,8 @@ class DocumentLineAnalyzer
 
             $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
             if ($this->didTheRegisterBeginInAPreviousLine()) {
-                $register = $this->registerSeveralLines . $register;
+                $register = $this->concatenatePreviousRegisterToRegister($register);
+                $this->resetRegisterPreviousLine();
             }
 
             echo "Register: $register";
@@ -111,5 +112,17 @@ class DocumentLineAnalyzer
         $registerInitialPosition = $endCharacterPosition + 1;
 
         return $registerInitialPosition;
+    }
+
+    private function concatenatePreviousRegisterToRegister($register)
+    {
+        $register = $this->registerSeveralLines . $register;
+
+        return $register;
+    }
+
+    private function resetRegisterPreviousLine()
+    {
+        $this->registerSeveralLines = '';
     }
 }

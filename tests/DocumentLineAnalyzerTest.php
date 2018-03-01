@@ -137,4 +137,23 @@ class DocumentLineAnalyzerTest extends TestCase
         $this->assertEquals('Why the rum is gone?', $registers[1]);
         $this->assertEquals('I’m captain Jack Sparrow.', $registers[2]);
     }
+
+    public function testOnePhraseWithExclamationAndQuestionAndPointMarkInSeveralLinesMustProduceThreeRegisters()
+    {
+        $documentAnalyzer = new DocumentLineAnalyzer();
+
+        $content = 'I’ve got a jar of ';
+        $documentLine = new DocumentLine($content);
+        $documentAnalyzer->analyze($documentLine);
+
+        $content = 'dirt! Why the rum is gone? I’m captain Jack Sparrow.';
+        $documentLine = new DocumentLine($content);
+        $documentAnalyzer->analyze($documentLine);
+
+        $registers = $documentAnalyzer->getRegisters();
+
+        $this->assertEquals('I’ve got a jar of dirt!', $registers[0]);
+        $this->assertEquals('Why the rum is gone?', $registers[1]);
+        $this->assertEquals('I’m captain Jack Sparrow.', $registers[2]);
+    }
 }
