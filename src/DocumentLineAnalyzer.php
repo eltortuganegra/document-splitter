@@ -155,12 +155,14 @@ class DocumentLineAnalyzer
     private function calculateLengthForQuoteMark($length)
     {
         $length += 3;
+
         return $length;
     }
 
     private function calculateEndCharacterPositionForQuoteMark($endCharacterPosition)
     {
         $endCharacterPosition += 3;
+
         return $endCharacterPosition;
     }
 }
