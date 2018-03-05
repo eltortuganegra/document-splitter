@@ -21,6 +21,8 @@ class Splitter
         while (($documentLine = $this->document->getDocumentLine()) !== false) {
             $this->documentLineAnalyzer->analyze($documentLine);
         }
+
+        $this->amountRegisters = $this->documentLineAnalyzer->getAmountRegistersFound();
     }
 
     public function getAmountRegisters()

@@ -5,8 +5,8 @@ use DocumentSplitter\DocumentSplitter;
 
 class DocumentSplitterTest extends TestCase
 {
-    var $pathToFile = __DIR__ . '/documents/document.txt';
-    var $newDocumentPath = __DIR__ . '/documents/document_split.txt';
+    var $pathToFile = __DIR__ . '/documents/document_default.txt';
+    var $newDocumentPath = __DIR__ . '/documents/document_default_split.txt';
 
     public function testPathToFileMustBeLoaded()
     {
@@ -36,6 +36,16 @@ class DocumentSplitterTest extends TestCase
         $isFileFound = file_exists($this->newDocumentPath);
 
         $this->assertTrue($isFileFound);
+    }
+
+    public function testSplitDefaultDocumentMustGenerateEightRegisters()
+    {
+        $documentSplitter = new DocumentSplitter($this->pathToFile, $this->newDocumentPath);
+        $documentSplitter->run();
+
+        $amountRegisters = $documentSplitter->getAmountRegisters();
+
+        $this->assertEquals(8, $amountRegisters);
     }
 
 }

@@ -15,24 +15,20 @@ class DocumentLineAnalyzer
 
     public function analyze(DocumentLine $documentLine)
     {
-        echo "\nDocument line content: " . $documentLine->getContent() . "\n";
         $registerInitialPosition = 0;
         $endCharacterPosition = $this->findEndCharacterPosition($documentLine);
 
         if ($this->isEndCharacterPositionNotFound($endCharacterPosition)) {
             $this->registerSeveralLines .= $this->removeReturnCarriage($documentLine->getContent());
-            echo " This line has not point. Saved: " . $this->registerSeveralLines . "\n";
 
             return;
         }
 
         while($this->isEndCharacterFound($endCharacterPosition)) {
             $length = $this->calculateLengthOfThePhrase($registerInitialPosition, $endCharacterPosition);
-            echo "\n Register initial position: $registerInitialPosition | endCharacterPosition: $endCharacterPosition";
             if ($this->isPhraseBetweenQuotesMark($documentLine, $endCharacterPosition)) {
                 $length++;
                 $endCharacterPosition++;
-                echo " | Between quotes: endCharacterPosition($endCharacterPosition) length ($length) ";
             }
 
             $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
@@ -41,12 +37,11 @@ class DocumentLineAnalyzer
                 $this->resetRegisterPreviousLine();
             }
 
-            echo " | Register: ($register)";
             $this->addRegisterToRegisters($register);
             $registerInitialPosition = $this->calculateInitialPositionForNextRegister($endCharacterPosition);
             $endCharacterPosition = $this->findEndCharacterPosition($documentLine, $registerInitialPosition);
-            echo "\n Next register: registerInitialPosition ($registerInitialPosition) endCharacterPosition ($endCharacterPosition)";
-            if ($this->isInitialPositionGreatherThanLengthOfTheDocumentLine($documentLine, $registerInitialPosition)) {
+
+            if ($this->isInitialPositionGreaterThanLengthOfTheDocumentLine($documentLine, $registerInitialPosition)) {
                 $this->registerSeveralLines = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
             }
         }
@@ -103,7 +98,7 @@ class DocumentLineAnalyzer
         $this->registers[] = $register;
     }
 
-    private function isInitialPositionGreatherThanLengthOfTheDocumentLine(DocumentLine $documentLine, $initialPosition)
+    private function isInitialPositionGreaterThanLengthOfTheDocumentLine(DocumentLine $documentLine, $initialPosition)
     {
         return $initialPosition > strlen($documentLine->getContent());
     }
@@ -135,10 +130,25 @@ class DocumentLineAnalyzer
     private function isPhraseBetweenQuotesMark(DocumentLine $documentLine, $endCharacterPosition)
     {
         $documentLineContent = $documentLine->getContent();
-        $documentLineContentSize = strlen($documentLineContent);
-        $nextCharacterToEndCharacterPosition = $endCharacterPosition + 1;
+        $documentLineContentSize = $this->getLengthOfDocumentLineContent($documentLineContent);
+        $nextCharacterToEndCharacterPosition = $this->calculateInitialPositionForNextRegister($endCharacterPosition);
 
-        return (($nextCharacterToEndCharacterPosition) <= $documentLineContentSize - 1)
-            && ($documentLineContent[$nextCharacterToEndCharacterPosition] == '"');
+        return ($this->isEndCharacterPositionLastPositionOfTheDocumentLine($nextCharacterToEndCharacterPosition, $documentLineContentSize))
+            && ($this->isLastCharacterADoubleQuote($documentLineContent, $nextCharacterToEndCharacterPosition));
+    }
+
+    private function isEndCharacterPositionLastPositionOfTheDocumentLine($nextCharacterToEndCharacterPosition, $documentLineContentSize)
+    {
+        return ($nextCharacterToEndCharacterPosition) <= ($documentLineContentSize - 1);
+    }
+
+    private function isLastCharacterADoubleQuote($documentLineContent, $nextCharacterToEndCharacterPosition)
+    {
+        return substr($documentLineContent, $nextCharacterToEndCharacterPosition, 3) == '”';
+    }
+
+    private function getLengthOfDocumentLineContent($documentLineContent)
+    {
+        return strlen($documentLineContent);
     }
 }
