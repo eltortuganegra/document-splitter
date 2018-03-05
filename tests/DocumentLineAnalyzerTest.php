@@ -174,44 +174,42 @@ class DocumentLineAnalyzerTest extends TestCase
     {
         $documentAnalyzer = new DocumentLineAnalyzer();
 
-        $content = '"I’ve got a jar of dirt!"';
+        $content = '“I’ve got a jar of dirt!”';
         $documentLine = new DocumentLine($content);
         $documentAnalyzer->analyze($documentLine);
 
         $registers = $documentAnalyzer->getRegisters();
 
-        $this->assertEquals('"I’ve got a jar of dirt!"', $registers[0]);
+        $this->assertEquals('“I’ve got a jar of dirt!”', $registers[0]);
     }
 
     public function testOnePhraseWithInterrogationMarkAndQuotesMustBeProduceARegister()
     {
         $documentAnalyzer = new DocumentLineAnalyzer();
 
-        $content = '"Why the rum is gone?"';
+        $content = '“Why the rum is gone?”';
         $documentLine = new DocumentLine($content);
         $documentAnalyzer->analyze($documentLine);
 
         $registers = $documentAnalyzer->getRegisters();
 
-        $this->assertEquals('"Why the rum is gone?"', $registers[0]);
+        $this->assertEquals('“Why the rum is gone?”', $registers[0]);
     }
-
-
 
     public function testTwoPhrasesWithPointQuestionExclamationQuotesMustBeProduceTwoRegister()
     {
         $documentAnalyzer = new DocumentLineAnalyzer();
 
-        $content = '"I’m captain Jack ';
+        $content = '“I’m captain Jack ';
         $documentLine = new DocumentLine($content);
         $documentAnalyzer->analyze($documentLine);
-        $content = 'Sparrow." "Why the rum is gone?"';
+        $content = 'Sparrow.” “Why the rum is gone?”';
         $documentLine = new DocumentLine($content);
         $documentAnalyzer->analyze($documentLine);
 
         $registers = $documentAnalyzer->getRegisters();
 
-        $this->assertEquals('"I’m captain Jack Sparrow."', $registers[0]);
-        $this->assertEquals('"Why the rum is gone?"', $registers[1]);
+        $this->assertEquals('“I’m captain Jack Sparrow.”', $registers[0]);
+        $this->assertEquals('“Why the rum is gone?”', $registers[1]);
     }
 }

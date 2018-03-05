@@ -27,8 +27,8 @@ class DocumentLineAnalyzer
         while($this->isEndCharacterFound($endCharacterPosition)) {
             $length = $this->calculateLengthOfThePhrase($registerInitialPosition, $endCharacterPosition);
             if ($this->isPhraseBetweenQuotesMark($documentLine, $endCharacterPosition)) {
-                $length++;
-                $endCharacterPosition++;
+                $length = $this->calculateLengthForQuoteMark($length);
+                $endCharacterPosition = $this->calculateEndCharacterPositionForQuoteMark($endCharacterPosition);
             }
 
             $register = $this->getRegisterFromDocumentLine($documentLine->getContent(), $registerInitialPosition, $length);
@@ -150,5 +150,17 @@ class DocumentLineAnalyzer
     private function getLengthOfDocumentLineContent($documentLineContent)
     {
         return strlen($documentLineContent);
+    }
+
+    private function calculateLengthForQuoteMark($length)
+    {
+        $length += 3;
+        return $length;
+    }
+
+    private function calculateEndCharacterPositionForQuoteMark($endCharacterPosition)
+    {
+        $endCharacterPosition += 3;
+        return $endCharacterPosition;
     }
 }

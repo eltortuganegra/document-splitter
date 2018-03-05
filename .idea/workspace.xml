@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4d21737-67cc-40bc-b50f-745887b77ae7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/documents/document_default.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" afterPath="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Splitter.php" afterPath="$PROJECT_DIR$/src/Splitter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DocumentSplitterTest.php" afterPath="$PROJECT_DIR$/tests/DocumentSplitterTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" afterPath="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
     </list>
     <ignored path="document-splitter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DocumentLineAnalyzer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4622057">
+              <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -68,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentSplitterTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DocumentSplitterTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/DocumentSplitterTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4510533">
+            <state vertical-scroll-proportion="-3.831579">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="e#7#38#0#PHP" expanded="true" />
@@ -84,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/tests/documents/document_default.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -93,8 +91,8 @@
       <file leaf-file-name="DocumentLineAnalyzerTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.085714">
-              <caret line="214" column="29" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="29" />
+            <state vertical-scroll-proportion="-15.114285">
+              <caret line="205" column="31" selection-start-line="205" selection-start-column="31" selection-end-line="205" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -123,11 +121,11 @@
         <option value="$PROJECT_DIR$/src/Document.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/EndCharacterPosition.php" />
-        <option value="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
         <option value="$PROJECT_DIR$/tests/documents/document_example.txt" />
         <option value="$PROJECT_DIR$/tests/DocumentSplitterTest.php" />
         <option value="$PROJECT_DIR$/tests/documents/document_default.txt" />
         <option value="$PROJECT_DIR$/src/Splitter.php" />
+        <option value="$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php" />
         <option value="$PROJECT_DIR$/src/DocumentLineAnalyzer.php" />
       </list>
     </option>
@@ -469,7 +467,13 @@
       <option name="project" value="LOCAL" />
       <updated>1519903208734</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Default document must generate eight registers.">
+      <created>1520275016869</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1520275016869</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -548,7 +552,8 @@
     <MESSAGE value="One phrase with exclamation, question and point mark in a line must produce three registers." />
     <MESSAGE value="Three  phrases with exclamation, question and point mark in two lines must produce three registers." />
     <MESSAGE value="Two phrases with point and question exclamation between quotes in two lines must produce two register." />
-    <option name="LAST_COMMIT_MESSAGE" value="Two phrases with point and question exclamation between quotes in two lines must produce two register." />
+    <MESSAGE value="Default document must generate eight registers." />
+    <option name="LAST_COMMIT_MESSAGE" value="Default document must generate eight registers." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -695,26 +700,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.085714">
-          <caret line="214" column="29" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/documents/document.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="75" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/documents/document_default.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -727,21 +716,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/DocumentSplitterTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4510533">
+        <state vertical-scroll-proportion="-3.831579">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/documents/document_default.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/DocumentLineAnalyzerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.114285">
+          <caret line="205" column="31" selection-start-line="205" selection-start-column="31" selection-end-line="205" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DocumentLineAnalyzer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4622057">
+          <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
