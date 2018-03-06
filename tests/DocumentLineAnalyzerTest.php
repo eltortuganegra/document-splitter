@@ -212,4 +212,5 @@ class DocumentLineAnalyzerTest extends TestCase
         $this->assertEquals('“I’m captain Jack Sparrow.”', $registers[0]);
         $this->assertEquals('“Why the rum is gone?”', $registers[1]);
     }
+
 }
